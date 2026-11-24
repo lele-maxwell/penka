@@ -13,11 +13,11 @@ flowchart LR
         DB[("PostgreSQL")]
         Files["Storage<br/>reports"]
     end
-    App -- "sign in only" --> Auth
-    App <-- "HTTPS + JSON (sync)" --> API
+    App -->|sign in only| Auth
+    App <-->|HTTPS + JSON, sync| API
     API --> DB
     API --> Files
-    API -. "checks login token" .-> Auth
+    API -.->|checks login token| Auth
 ```
 
 - The app saves everything locally first (SQLite), so it works offline.
