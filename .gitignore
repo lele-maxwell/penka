@@ -1,0 +1,36 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Official documents stay local (large files)
+reference/*
+!reference/README.md
+
+# The demo stays local: its sample data uses real class results
+prototype/*
+!prototype/README.md
+
+# Node / Expo
+node_modules/
+.expo/
+dist/
+web-build/
+*.tsbuildinfo
+/app/ios
+/app/android
+
+# Rust
+/backend/target/
+
+# Signing keys
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
