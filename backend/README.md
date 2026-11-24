@@ -1,6 +1,6 @@
 # backend/ – the Penka server
 
-Rust. Proposed: Axum (web framework), SQLx (database access), PostgreSQL, JWT + argon2 for login, Docker on a VPS.
+Rust: Axum (web framework) and SQLx (database access). Database, login and file storage are hosted Supabase (see docs/architecture/decisions/0002-supabase.md). Runs in Docker on a small server.
 No code yet. This file describes how the folder will be organised.
 
 ## Planned folders
@@ -16,7 +16,7 @@ backend/
 │   ├── services/      the real work (rates, coverage, report text)
 │   ├── repositories/  all SQL lives here, nowhere else
 │   ├── models/        data shapes (database rows, requests, responses)
-│   └── auth/          login, passwords (argon2), tokens (JWT), roles
+│   └── auth/          checks the Supabase login token, loads the user's role
 ├── migrations/        numbered SQL files that build the database
 └── tests/
 ```

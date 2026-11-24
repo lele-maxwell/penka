@@ -5,7 +5,9 @@ Work on the first unchecked item. Tick it (`[x]`) when it is done.
 ## Phase 0 – Foundations
 - [x] Clickable prototype with fake data (`prototype/`)
 - [x] Repository structure and rules
-- [ ] Confirm backend stack (decision 0001)
+- [x] Confirm backend stack (decision 0001)
+- [x] Choose login and database: Supabase (decision 0002)
+- [ ] Architecture talk: frontend, backend, data model, offline sync, deployment
 - [ ] Data model written in `architecture/data-model.md`
 
 ## Phase 1 – Teacher basics (offline)
@@ -16,7 +18,7 @@ Work on the first unchecked item. Tick it (`[x]`) when it is done.
 
 ## Phase 2 – Server and sync
 - [ ] Set up the Rust backend in `backend/`
-- [ ] Login for teachers and HOD
+- [ ] Create the Supabase project; login for teachers and HOD
 - [ ] Sync between app and server
 
 ## Phase 3 – HOD and reports
