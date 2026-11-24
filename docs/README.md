@@ -10,6 +10,7 @@ Start with `progress.md`, then read what you need below.
 | `product/glossary.md` | School and project words (séquence, HP, G/F, CE…) |
 | `design/ui-guidelines.md` | Colours, fonts, wording rules |
 | `architecture/overview.md` | How the app, server and database fit together |
+| `architecture/frontend.md` | The app: screens, navigation, local storage, web first |
 | `architecture/data-model.md` | What we store (class counts, never student names) |
 | `architecture/offline-sync.md` | How the app works without a connection |
 | `architecture/decisions/` | Important choices, one file each |
