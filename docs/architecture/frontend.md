@@ -17,9 +17,13 @@ All users (teachers and HOD) can use either the web or the phone app.
 | Tests | Jest + React Native Testing Library | Logic and key screens |
 
 ## 2. How data flows
-```
-Screen ──▶ hook ──▶ local SQLite  ◀──▶  sync/ ──▶ Rust API ──▶ Supabase Postgres
-                     (always)          (when online)
+```mermaid
+flowchart LR
+    Screen["Screen"] --> Hook["Hook"]
+    Hook --> Local[("Local SQLite<br/>always")]
+    Local <--> Sync["sync/<br/>when online"]
+    Sync <--> API["Rust API"]
+    API --> DB[("Supabase PostgreSQL")]
 ```
 - Screens **never** call the server directly. They read and write local storage through hooks.
 - `sync/` sends local changes and pulls updates in the background.

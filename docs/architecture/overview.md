@@ -1,13 +1,23 @@
 # Architecture overview
 
-```
- Phone / browser                         Server (VPS, Docker)
-┌─────────────────────┐   HTTPS + JSON   ┌──────────────────┐     ┌────────────┐
-│ app/  (Expo)         │ ───────────────▶ │ backend/ (Rust)   │ ──▶ │ PostgreSQL │
-│ local SQLite storage │ ◀─── sync ────── │ Axum + SQLx       │     │  Supabase  │
-└─────────┬───────────┘                  └──────────────────┘     │  Postgres  │
-          │ sign in only                                           │  Storage   │
-          └──────────────────────────────▶ Supabase Auth           └────────────┘
+```mermaid
+flowchart LR
+    subgraph User["Phone or browser"]
+        App["Penka app (Expo)<br/>local SQLite storage"]
+    end
+    subgraph Server["Our server (Docker)"]
+        API["Rust API<br/>Axum + SQLx"]
+    end
+    subgraph Supa["Supabase (hosted)"]
+        Auth["Auth<br/>login"]
+        DB[("PostgreSQL")]
+        Files["Storage<br/>reports"]
+    end
+    App -- "sign in only" --> Auth
+    App <-- "HTTPS + JSON (sync)" --> API
+    API --> DB
+    API --> Files
+    API -. "checks login token" .-> Auth
 ```
 
 - The app saves everything locally first (SQLite), so it works offline.
